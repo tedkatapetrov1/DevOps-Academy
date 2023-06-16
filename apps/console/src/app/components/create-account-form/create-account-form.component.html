@@ -1,0 +1,40 @@
+<form
+  (ngSubmit)="submit();"
+  [formGroup]="createAccountFormGroup"
+  name="message">
+  <div>
+    <div>
+      <h3 style="margin: 0.5rem 0 0;">
+        {{ createAccountFormStatus() == "unsent" ? "Create an account" : (createAccountFormStatus() == "pending" ? "Pending" + ellipsesService.ellipses() : "Complete") }}
+      </h3>
+    </div>
+    <div>
+      <h4
+        id="nameInputLabel"
+        style="margin: 0.5rem 0 0;">
+        Name:
+      </h4>
+    </div>
+    <input
+      [required]="true"
+      aria-labelledby="nameInputLabel"
+      autocapitalize="words"
+      autocomplete="name"
+      autofocus
+      formControlName="displayName"
+      type="text">
+  </div>
+  <button
+    [disabled]="(!authenticationService.user()) || (!createAccountFormGroup.valid) || createAccountFormStatus() !== 'unsent'"
+    disabled=""
+    type="submit">
+    <img
+      alt="Submit icon"
+      height="14.9317px"
+      [loaderParams]="{type: 'Icon', foregroundAppearance: authenticationService.user() && createAccountFormGroup.valid && createAccountFormStatus() == 'unsent' ? (hyperResponsivityService.foregroundAppearance() == 'light' ? 'dark' : 'light') : hyperResponsivityService.foregroundAppearance()}"
+      ngSrc="submit"
+      ngSrcset="1x"
+      sizes="15.9141px"
+      width="15.9141px">
+  </button>
+</form>
