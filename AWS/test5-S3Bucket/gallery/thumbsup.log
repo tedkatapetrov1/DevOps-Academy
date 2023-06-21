@@ -1,0 +1,9 @@
+2023-06-05T07:56:46.903Z thumbsup:warn magick (https://imagemagick.org) is not installed. You will not be able to process HEIC images.
+2023-06-05T07:56:46.903Z thumbsup:warn ffmpeg (https://www.ffmpeg.org) is not installed. You will not be able to process videos.
+2023-06-05T07:56:46.903Z thumbsup:warn gifsicle (http://www.lcdf.org/gifsicle) is not installed. You will not be able to process animated GIFs.
+2023-06-05T07:56:46.903Z thumbsup:warn dcraw (https://www.cybercom.net/~dcoffin/dcraw/) is not installed. You will not be able to process RAW photos.
+2023-06-05T07:56:47.002Z thumbsup:warn ENOENT: no such file or directory, scandir '/Users/petrteod1/PycharmProjects/AWS/test5-S3Bucket/photos'
+2023-06-05T08:53:15.282Z thumbsup:warn magick (https://imagemagick.org) is not installed. You will not be able to process HEIC images.
+2023-06-05T08:53:15.282Z thumbsup:warn ffmpeg (https://www.ffmpeg.org) is not installed. You will not be able to process videos.
+2023-06-05T08:53:15.282Z thumbsup:warn gifsicle (http://www.lcdf.org/gifsicle) is not installed. You will not be able to process animated GIFs.
+2023-06-05T08:53:15.282Z thumbsup:warn dcraw (https://www.cybercom.net/~dcoffin/dcraw/) is not installed. You will not be able to process RAW photos.
