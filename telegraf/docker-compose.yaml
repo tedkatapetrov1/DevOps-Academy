@@ -1,0 +1,61 @@
+version: "3"
+
+services:
+  influxdb:
+    platform: linux/x86_64
+    image: influxdb:1.8-alpine
+    container_name: influxdb
+    restart: always
+    volumes:
+      - influxdb_data:/var/lib/influxdb
+      - ./influxdb:/etc/influxdb
+    networks:
+      - tick_net
+
+  chronograf:
+    image: chronograf:latest
+    container_name: chronograf
+    restart: always
+    ports:
+      - "8888:8888"
+    volumes:
+      - chronograf_data:/var/lib/chronograf
+    environment:
+      - RESOURCES_PATH=/usr/share/chronograf/resources
+    networks:
+      - tick_net
+    depends_on:
+      - influxdb
+
+  kapacitor:
+    image: kapacitor:latest
+    container_name: kapacitor
+    restart: always
+    volumes:
+      - kapacitor_data:/var/lib/kapacitor
+      - ./kapacitor:/etc/kapacitor
+    networks:
+      - tick_net
+    depends_on:
+      - influxdb
+
+  telegraf:
+    image: telegraf:latest
+    container_name: telegraf
+    restart: always
+    environment:
+      - HOSTNAME=telegraf-mac-os
+    volumes:
+      - ./telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+    networks:
+      - tick_net
+    depends_on:
+      - influxdb
+
+volumes:
+  influxdb_data:
+  chronograf_data:
+  kapacitor_data:
+
+networks:
+  tick_net:
